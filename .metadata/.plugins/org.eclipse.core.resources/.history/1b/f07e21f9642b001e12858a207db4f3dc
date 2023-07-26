@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>369</title>
+</head>
+<body>
+	<h1>3,6,9에 짝이 들어가요</h1>	
+      <%
+    for (int i = 1; i <= 20; i++) {
+        String test = Integer.toString(i);
+        boolean is369 = false;
+
+        if (test.contains("3") || test.contains("6") || test.contains("9")) {
+            is369 = true;
+        }
+
+        if (is369) {
+            out.print(i + " 짝");
+        } else {
+            out.print(i + " ");
+        }
+    }
+    %>
+</body>
+</html>

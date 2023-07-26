@@ -39,7 +39,5 @@ exception: <%=exception %><br/>
 exception2: <%=exception2 %><br/>
 
 
-
-
 </body>
 </html>

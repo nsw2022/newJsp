@@ -14,5 +14,12 @@
 	<a href="basic/04_page.jsp">04_page</a><br>
 	<a href="basic/05_config.jsp">05_config</a><br>
 	<a href="basic/06_pageContext.jsp">06_pageContext</a><br>
+	<h2>exception</h2>
+	<a href="error/aaa.jsp">try~ catch</a>
+	<a href="error/bbb.jsp">errpage</a><br>
+	<a href="error/ccc.jsp">500</a><br>
+	<a href="error/ddd.jsp">404</a><br>
+	<a href="error/eee.jsp">type</a><br>
+	
 </body>
 </html>

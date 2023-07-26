@@ -1,0 +1,61 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>369</title>
+</head>
+<body>
+	<h1>3,6,9에 짝이 들어가요</h1>	
+	
+     <%
+     
+    for (int i = 1; i < 1_000_000; i++) {
+        String test = Integer.toString(i); // 문자로 받아서
+        int count369 = 0; // 상태변수
+        StringBuilder result = new StringBuilder(); // arraylist로 하려다가 bulider가 더 나아보임
+
+        for (int j = 0; j < test.length(); j++) {// 길이많큼 반복해서 자리수마다 비교
+        	
+            char digit = test.charAt(j); // 자리수를 비교해줌
+            if (digit == '3' || digit == '6' || digit == '9') {
+                count369++; // 상태변수 더함
+            }
+            
+        }
+
+        for (int k = 0; k < count369; k++) {
+            result.append("짝");//상태변수의 길의만큼 append시킴        	
+        }
+            
+        if (result.length() == 0) {
+            out.print(i + "<br>");//"짝있으면 여기서 출력"
+        } else {
+            out.print(result + "<br>");//없으면 여기서 걸림
+        }
+    }
+	
+	
+	/*
+	for (int i = 1; i < 100; i++){
+	   
+	    int a = i/10;
+	    int b = i%10;
+	    if(a % 3 == 0){
+	        out.print("짝");
+	    }
+	    else if(b % 3 == 0){
+	        out.println("짝");
+	    }else{
+	    	out.println(i);
+	    }
+	    
+	}
+	*/
+    %>
+    
+    
+</body>
+</html>
