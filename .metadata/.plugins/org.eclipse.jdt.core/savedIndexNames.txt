@@ -31,7 +31,6 @@ INDEX VERSION 1.132+E:\NSW\study\.metadata\.plugins\org.eclipse.jdt.core
 3554699487.index
 2975988274.index
 2944808039.index
-2167277520.index
 905518677.index
 3371317155.index
 1562601213.index
