@@ -1,6 +1,6 @@
 package basic_p;
 
-import java.util.Iterator;
+
 
 public class TSNTEST {
 	
@@ -113,8 +113,9 @@ public class TSNTEST {
 		
 		
 		
-		/*
+		
 		//처음버전
+		/*
 		for (int i = 1; i < 11; i++) {
 			int one = i % 10; // i가 10으로 나눠떨어지는 경우
 			int three = i % 3;// i가 3으로 나눠떨어지는 경우 
@@ -128,6 +129,7 @@ public class TSNTEST {
 			}
 		}//for
 		*/
+		
 		//두번째 try
 		for (int i = 1; i < 21; i++) {
 			int one = i % 10; // i가 10으로 나눠떨어지는 경우 one 0~9
@@ -148,6 +150,7 @@ public class TSNTEST {
 		}//for
 		System.out.println();
 		System.out.println(0%3);
+		
 	
 	}
 

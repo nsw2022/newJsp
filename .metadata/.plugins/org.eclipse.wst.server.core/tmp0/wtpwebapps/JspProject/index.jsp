@@ -20,6 +20,7 @@
 	<a href="error/ccc.jsp">500</a><br>
 	<a href="error/ddd.jsp">404</a><br>
 	<a href="error/eee.jsp">type</a><br>
-	
+	<h2>request</h2>
+	<a href="request/numFrom.jsp">request</a>
 </body>
 </html>

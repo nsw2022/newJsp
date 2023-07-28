@@ -6,6 +6,7 @@
 		<item key="isRegEx" value="false"/>
 		<item key="selection" value="param"/>
 		<list key="findhistory">
+			<item value="numStr"/>
 			<item value="param"/>
 			<item value="request"/>
 		</list>
