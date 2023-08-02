@@ -22,5 +22,11 @@
 	<a href="error/eee.jsp">type</a><br>
 	<h2>request</h2>
 	<a href="request/numFrom.jsp">request</a>
+	<h2>redirect</h2>
+	<a href="redirect/a.jsp?nick=ccc">redirect</a>
+	<h2>forward</h2>
+	<a href="forward/a.jsp">forward</a>
+	<h2>include</h2>
+	<a href="include/a.jsp">include</a>
 </body>
 </html>
