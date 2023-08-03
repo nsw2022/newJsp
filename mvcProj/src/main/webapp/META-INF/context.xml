@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Resource
+	name="mvc322"
+	auth="Container"
+	type="javax.sql.DataSource"
+	
+	driverClassName="com.mysql.cj.jdbc.Driver"
+	
+	url="jdbc:mysql://localhost:3306/db322"
+	username="user322"
+	password="12345678"
+     />
+	
+
+</Context>
+	<!-- Libraries/JRE System Library/javasql/javax.sql
+	/DataSource클래스 -->
+	<!-- 경로 java Resources/mysql-connector/com중 jdbc 안에 Driver -->

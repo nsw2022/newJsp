@@ -15,6 +15,6 @@
 	request.setAttribute("pname", "fff");
 	
 %>
-<jsp:include page="b.jsp?age=34"/>
+<%-- <jsp:include page="b.jsp?age=34"/> --%>
 </body>
 </html>
