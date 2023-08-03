@@ -26,30 +26,21 @@ public class BoardController extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+ 
 		//System.out.println(request.getRequestURI());
 		//System.out.println(request.getContextPath()+"/board/");
-		
 		String serviceStr = request.getRequestURI().substring(
 				(request.getContextPath()+"/board/").length()
 				);
 		System.out.println(serviceStr);
 		
 		try {
-			BoardService service = (BoardService)Class.forName("ser_p."+serviceStr).newInstance();
+		BoardService service = (BoardService)Class.forName("ser_p."+serviceStr).newInstance();
 			service.execute(request, response);
-			
-			
-			
-			
-			
-			
-			
+				
 			request.setAttribute("mainPage", serviceStr);
-			
-			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/views/template.jsp");
+					
+			RequestDispatcher dispatcher = request.getRequestDispatcher("mainPage");
 			dispatcher.forward(request, response);
 			
 			
@@ -60,9 +51,7 @@ public class BoardController extends HttpServlet {
 	
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

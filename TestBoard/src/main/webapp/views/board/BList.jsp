@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>테스트 들가자</title>
+<title>게시판보기</title>
 </head>
 <body>
-	<h1>오셧군요?</h1>
-	<a href="board/BList">게시판보기</a>
+	<h1>하이염</h1>
 </body>
 </html>
