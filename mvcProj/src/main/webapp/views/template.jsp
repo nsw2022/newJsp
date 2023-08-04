@@ -4,7 +4,7 @@
 <%-- <%
 	String mainUrl = "board/"+request.getAttribute("mainPage")+".jsp";
 
-%>   --%> 
+%>   --%>
     
 <!DOCTYPE html>
 <html>

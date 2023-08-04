@@ -26,7 +26,7 @@ public class BoardController extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
- 
+		
 		//System.out.println(request.getRequestURI());
 		//System.out.println(request.getContextPath()+"/board/");
 		String serviceStr = request.getRequestURI().substring(
@@ -35,17 +35,22 @@ public class BoardController extends HttpServlet {
 		System.out.println(serviceStr);
 		
 		try {
-		BoardService service = (BoardService)Class.forName("ser_p."+serviceStr).newInstance();
+			
+			request.setCharacterEncoding("utf-8");
+			
+			request.setAttribute("mainPage", serviceStr);
+			
+			
+			BoardService service = (BoardService)Class.forName("ser_p."+serviceStr).newInstance();
 			service.execute(request, response);
 				
-			request.setAttribute("mainPage", serviceStr);
 					
-			RequestDispatcher dispatcher = request.getRequestDispatcher("mainPage");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/views/template.jsp");
 			dispatcher.forward(request, response);
 			
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	
@@ -53,7 +58,7 @@ public class BoardController extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	
 		doGet(request, response);
 	}
 

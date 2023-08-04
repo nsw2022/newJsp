@@ -30,7 +30,7 @@
 	
 	<tr>
 		<td colspan="5" align="right">
-			<a href="BwriteForm">글쓰기</a>
+			<a href="BWriteForm">글쓰기</a>
 		</td>
 	</tr>
 </table>
