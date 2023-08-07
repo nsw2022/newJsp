@@ -6,14 +6,14 @@
 		<item key="isRegEx" value="false"/>
 		<item key="selection" value=""/>
 		<list key="findhistory">
-			<item value="add"/>
-			<item value="getup"/>
-			<item value="reg"/>
 			<item value="getcon"/>
+			<item value="getup"/>
+			<item value="dao"/>
+			<item value="add"/>
+			<item value="reg"/>
 			<item value="java:/comp/env/"/>
 			<item value="blist"/>
 			<item value="math"/>
-			<item value="numStr"/>
 		</list>
 		<list key="replacehistory">
 			<item value="meth"/>

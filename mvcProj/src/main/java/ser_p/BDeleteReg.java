@@ -11,6 +11,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import control.BoardService;
 import model_p.BoardDAO;
 import model_p.BoardDTO;
+import model_p.PageData;
 
 public class BDeleteReg implements BoardService{
 
@@ -30,12 +31,12 @@ public class BDeleteReg implements BoardService{
 		dto.setId(Integer.parseInt(request.getParameter("id")));
 		dto.setPw(request.getParameter("pw"));
 		
+		PageData pd = (PageData) request.getAttribute("pd");
 		
 		String msg = "비밀번호가 일치하지 안습니다";
-		String goUrl = "BedeleteForm?id="+dto.getId();
+		String goUrl = "BDeleteForm?id="+dto.getId()+"&page="+pd.page;
 		// id/pw검사로직
 		BoardDTO delDTO = new BoardDAO().idPwChk(dto);
-		
 		if (delDTO != null) {
 			if (!delDTO.getUpfile().equals("")) {// 파일명이 존재한다면
 				//파일 삭제
@@ -44,7 +45,7 @@ public class BDeleteReg implements BoardService{
 			// DB에서 삭제
 			new BoardDAO().delete(dto);
 			msg = "삭제되었습니다.";
-			goUrl = "BList";
+			goUrl = "BList?page="+pd.page;
 		}
 		
 		request.setAttribute("mainPage", "alert");

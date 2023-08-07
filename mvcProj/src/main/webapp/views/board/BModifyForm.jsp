@@ -1,7 +1,23 @@
+<%@page import="model_p.BoardDTO"%>
+<%@page import="model_p.PageData"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<form action="BModifyReg" method="post" enctype="multipart/form-data">
+<% 
+	BoardDTO dto = (BoardDTO)request.getAttribute("mainData"); 
+	PageData pd = (PageData)request.getAttribute("pd"); 
+%> 
+<script type="text/javascript">
+function fileDel(){
+	
+	
+	myFrm.action="BFileDelete?page=<%=pd.page%>"
+	myFrm.submit()
+}
+</script>
+
+<form action="BModifyReg?page=<%=pd.page%>" method="post" enctype="multipart/form-data" name="myFrm">
+
 	<table border="">
 		<tr>
 			<td width="100px">번호</td>
@@ -27,6 +43,7 @@
 			<td>암호</td>
 			<td><input type="text" name="pw" style="width: 99%;" /></td>
 		</tr>
+		<c:if test="${mainDTO.seq eq 0 }">
 		<tr>
 			<td>파일</td>
 			<td>
@@ -35,15 +52,16 @@
 						<input type="file" name="upfile" style="width: 99%;" />
 					</c:when>
 					<c:otherwise>
-						${ mainDTO.upfile }<input type="button" value="파일삭제">
+						${ mainDTO.upfile }<input type="button" value="파일삭제" onclick="fileDel()">
 						
 					</c:otherwise>
 				</c:choose>
 			</td>
 		</tr>
+		</c:if>
 		<c:if test="${mainDTO.upfile != '' }">
 		<tr>
-			<td>전사진 미리 보기</td>
+			<td>올린사진<br> 미리 보기</td>
 			<td><img width="500px;" src="/mvcProj/up/${ mainDTO.upfile}" alt="사진에요" /></td>
 		</tr>
 		</c:if>
@@ -51,7 +69,7 @@
 			<td colspan="2" align="center">
 				<input type="submit" value="수정하기" />
 				<input type="reset" value="초기화" />
-				<a href="BDetail?id=${ mainDTO.id }">뒤로</a>
+				<a href="BDetail?id=${ mainDTO.id }&page=<%=pd.page%>">뒤로</a>
 			</td>
 		</tr>
 	</table>

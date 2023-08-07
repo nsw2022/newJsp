@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<%-- <%
-	String mainUrl = "board/"+request.getAttribute("mainPage")+".jsp";
-
-%>   --%>
+ <%
+	String mainPage = request.getAttribute("mainPage")+ ".jsp";
+	
+%>   
     
 <!DOCTYPE html>
 <html>
@@ -18,7 +19,16 @@
 		<td ><jsp:include page="Inc/header.jsp"/></td>
 	</tr>
 	<tr>
-		<td ><jsp:include page="board/${mainPage}.jsp"/></td>
+			
+		
+		<td ><jsp:include page="<%= mainPage %>"/></td>
+		
+		
+			
+		
+
+       
+		
 	</tr>
 	<tr>
 		<td ><jsp:include page="Inc/footer.jsp"/></td>

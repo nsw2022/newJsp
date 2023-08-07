@@ -1,9 +1,10 @@
+<%@page import="model_p.PageData"%>
 <%@page import="model_p.BoardDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <% BoardDTO mainDTO = (BoardDTO) request.getAttribute("mainDTO"); %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<% PageData pd = (PageData) request.getAttribute("pd"); %>
 <table border="">
     <tr>
         <td width="200px">번호</td>
@@ -57,10 +58,10 @@
     <tr>
         <td colspan="2" align="right">
      
-        	<a href="BDeleteForm?id=${mainDTO.id }">삭제</a>
-        	<a href="BModifyForm?id=${mainDTO.id }">수정</a>
-        	<a href="BReplyForm?id=${mainDTO.id }">답변</a>
-        	<a href="BList">목록으로</a>
+        	<a href="BDeleteForm?id=${mainDTO.id }&page=<%=pd.page%>">삭제</a>
+        	<a href="BModifyForm?id=${mainDTO.id }&page=<%=pd.page%>">수정</a>
+        	<a href="BReplyForm?id=${mainDTO.id }&page=<%=pd.page%>">답변</a>
+        	<a href="BList?&page=<%=pd.page%>">목록으로</a>
        	</td>
     </tr>
     

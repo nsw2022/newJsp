@@ -1,36 +1,69 @@
+<%@page import="model_p.PageData"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="model_p.BoardDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
+
 <table border="">
 	<tr align="center">
-		<td width="50px;">번호</td>
-		<td width="500px;">제목</td>
-		<td width="100px;">작성자</td>
-		<td width="200px;">작성일</td>
-		<td width="50px;">조회수</td>
+		<td width="50px">번호</td>
+		<td  width="500px">제목</td>
+		<td width="100px">작성자</td>
+		<td width="200px">작성일</td>
+		<td width="50px">조회수</td>
 	</tr>
-	<c:forEach items="${mainData }" var="items">
-	<tr align="center">
-		<td> ${items.id}</td>
-		<td>
-			<a href="BDetail?id=${items.id }"> ${items.title} </a>
-		</td>
-		<td>${items.pname}</td>
-		<td>${items.reg_date}</td>
-		<td>${items.cnt}</td>
-	</tr>
-	</c:forEach>
-	
+<%
 
-	
-	
-	<tr>
-		<td colspan="5" align="center"></td>
+PageData pd = (PageData) request.getAttribute("pd");
+int i = pd.start;
+for(BoardDTO dto : (ArrayList<BoardDTO>) request.getAttribute("mainData")) {
+i++;
+
+%>	
+	<tr align="center">
+		<td><%=i %></td>
+		<td align="left">
+		<% for(int n=0;n<dto.getLev();n++) {%>
+			&nbsp;&nbsp;
+		<%} if(dto.getLev() > 0){%>
+		└
+		<%} %>
+			<a href="BDetail?id=<%=dto.getId()%>&page=<%=pd.page%>"><%=dto.getTitle() %></a>
+		</td>
+		<td><%=dto.getPname() %></td>
+		<td><%=dto.getReg_date() %></td>
+		<td><%=dto.getCnt() %></td>
 	</tr>
-	
+	<%} %>
 	<tr>
-		<td colspan="5" align="right">
-			<a href="BWriteForm">글쓰기</a>
+		<td colspan="5"  align="center">
+		<% if(pd.pageStart > 1) { %>
+			<a href="?page=<%=1 %>">[맨처음]</a>
+			<a href="?page=<%= pd.pageStart -1 %>">[이전]</a>
+		<% } %>
+			
+			<% for(int p= pd.pageStart; p<=pd.pageEnd ;p++){ %>
+				<% if(pd.page == p) { %>
+					<a href="?page=<%=p %>">
+						[<%=p %>]
+					</a>
+				<% }else{ %>
+					<a href="?page=<%=p %>">
+						<%=p %>
+					</a>
+				<% } %>
+				
+			<% } %>
+			<% if(pd.pageEnd < pd.pageTotal) { %>
+			<a href="?page=<%= pd.pageEnd + 1 %>">[다음]</a>
+			<a href="?page=<%=pd.pageTotal %>">[맨끝]</a>
+			<% } %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="5"  align="right">
+			<a href="BWriteForm?page=<%=pd.page%>">글쓰기</a>
 		</td>
 	</tr>
 </table>

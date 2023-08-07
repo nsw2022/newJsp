@@ -13,7 +13,7 @@ import model_p.BoardDAO;
 import model_p.BoardDTO;
 import model_p.PageData;
 
-public class BModifyReg implements BoardService{
+public class BFileDelete implements BoardService{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
@@ -27,6 +27,9 @@ public class BModifyReg implements BoardService{
 		
 		
 		try {
+			PageData pd = (PageData) request.getAttribute("pd");
+			
+			
 			MultipartRequest mr = new MultipartRequest(
 					request,
 					path,
@@ -36,7 +39,6 @@ public class BModifyReg implements BoardService{
 				);
 			
 			BoardDTO dto = new BoardDTO();
-			PageData pd = (PageData) request.getAttribute("pd");
 			dto.setId( Integer.parseInt(mr.getParameter("id")));
 			dto.setTitle( mr.getParameter("title"));
 			dto.setPname( mr.getParameter("pname"));
@@ -49,17 +51,20 @@ public class BModifyReg implements BoardService{
 			
 			System.out.println(dto);
 			
+			BoardDTO delDTO = new BoardDAO().idPwChk(dto);
 			
-			if(new BoardDAO().moidfy(dto) > 0) {//id, pw 가 일치한다면
+			if (delDTO != null) {
 				
-				msg = "수정되었습니다.";
-				goUrl = "BDetail?id="+dto.getId()+"&page="+pd.page;
-			}else{
-				if (mr.getFilesystemName("upfile")!=null) {
-					new File(path+"\\"+mr.getFilesystemName("upfile")).delete();
-				}
+				//파일 삭제
+				new File(path+"\\"+delDTO.getUpfile()).delete();
+				new BoardDAO().fileDelete(dto);
+				
+				msg = "파일 삭제되었습니다.";
+				//goUrl = "BList";
+				
 			}
-					
+			
+				
 			request.setAttribute("mainPage", "alert");
 			request.setAttribute("msg",msg);
 			request.setAttribute("goUrl",goUrl);
