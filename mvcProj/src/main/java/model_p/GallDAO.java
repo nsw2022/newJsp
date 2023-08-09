@@ -63,6 +63,32 @@ public class GallDAO {
 		return res;
 	}
 	
+	public GallDTO gallDetail(int id) {
+		sql = "select * from gallery where id = ?";
+		GallDTO dto = null;
+		
+		try {
+			ptmt = con.prepareStatement(sql);
+			ptmt.setInt(1, id);
+			rs = ptmt.executeQuery();
+			if (rs.next()) {
+				dto = new GallDTO();
+				dto.setId(rs.getInt("id"));
+				dto.setContent(rs.getString("content"));
+				dto.setUpfile(rs.getString("upfile"));
+				dto.setPname(rs.getString("pname"));
+				dto.setTitle(rs.getString("title"));
+				dto.setReg_date(rs.getString("reg_date"));
+			
+			}
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+	
+		return  dto;
+	}
+	
 	public void close() {
 		if(rs!=null) try { rs.close();	} catch (Exception e) {}
 		if(ptmt!=null) try { ptmt.close();	} catch (Exception e) {}

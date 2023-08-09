@@ -22,23 +22,27 @@ i++;
 %>
 		<tr style="display: contents;">
 			<td width="100px" align="center" >
-				<%= i %>
-				<p>
-					<%= dto.getTitle() %>
-				</p>
-	
-				<img src="../up/<%= dto.getUpfile() %>" alt="사진" width="180px"
-					height="200px" />
-	
-	
-				<p>
-					<%= dto.getReg_date() %>
-				</p>
-	
-				<p>
-					<%= dto.getPname() %>
-				</p>
-
+				<a href="GallDetail?id=<%=dto.getId() %>">
+					<%= i %>
+					<p>
+						<%= dto.getTitle() %>
+					</p>
+		
+					<img src="../up/<%= dto.getUpfile() %>" alt="사진" width="180px"
+						height="200px" />
+		
+		
+					<p>
+						<%= dto.getReg_date() %>
+					</p>
+		
+					<p>
+						<%= dto.getPname() %>
+					</p>
+					<p>
+						<%= dto.getContent() %>
+					</p>
+				</a>
 			</td>
 
 

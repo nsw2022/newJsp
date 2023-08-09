@@ -4,18 +4,19 @@
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="de"/>
 		<list key="findhistory">
-			<item value="getcon"/>
+			<item value="bool"/>
 			<item value="getup"/>
+			<item value="mr"/>
+			<item value="wr"/>
+			<item value="파일"/>
+			<item value="getcon"/>
 			<item value="dao"/>
 			<item value="add"/>
-			<item value="reg"/>
-			<item value="java:/comp/env/"/>
-			<item value="blist"/>
-			<item value="math"/>
 		</list>
 		<list key="replacehistory">
+			<item value="request"/>
 			<item value="meth"/>
 		</list>
 	</section>

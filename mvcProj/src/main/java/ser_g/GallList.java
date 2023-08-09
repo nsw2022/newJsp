@@ -13,7 +13,7 @@ public class GallList implements GalleryService{
 		request.setAttribute("mainTitle", "갤러리 리스트");
 		System.out.println("GallList 실행");
 		request.setAttribute("GallList", new GallDAO().list());
-		System.out.println(new GallDAO().list() );
+		
 	}
 
 }
